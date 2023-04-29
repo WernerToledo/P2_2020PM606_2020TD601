@@ -17,12 +17,12 @@
         <div class="row ">
             
             <div class="col">
-                @Html.Label("lbldepartamento", "Departamento", new{@for="nombre", @class="form-label"})
-                @Html.DropDownList("nombre", ViewData["listadoDepartamento"]as SelectList,"Seleccione un departamento", new{@class = "form-control"})
+                @Html.Label("lbldepartamento", "Departamento", new{@for="id_departamento", @class="form-label"})
+                @Html.DropDownList("id_departamento", ViewData["listadoDepartamento"]as SelectList,"Seleccione un departamento", new{@class = "form-control"})
             </div>
             <div class="col">
                 @Html.Label("lblgenero", "Genero", new{@for="genero", @class="form-label"})
-                @Html.DropDownList("genero", ViewData["listadoGeneros"]as SelectList,"Seleccione el genero", new{@class = "form-control"})
+                @Html.DropDownList("id_genero", ViewData["listadoGeneros"]as SelectList,"Seleccione el genero", new{@class = "form-control"})
             </div>
            
         </div>
