@@ -4,7 +4,7 @@
 @model P2_2020PM606_2020TD601.Models.casosReportados;
 @{
 }
-<div class="container" style="background-color: rgb(215, 219, 221);">
+<div class="container mb-4" style="background-color: rgb(215, 219, 221);">
     <h1 class="text-center">Registro de COVID</h1>
     <p class="text-center">
         El siguiente formulario es para llevar el registro de <br>
@@ -14,7 +14,7 @@
     <!--Contenido a ingresar-->
     <h1>Reportar casos</h1>
     <form asp-action="CrearCasos">
-        <div class="row ">
+        <div class="row">
             
             <div class="col">
                 @Html.Label("lbldepartamento", "Departamento", new{@for="id_departamento", @class="form-label"})
@@ -76,6 +76,6 @@
 
             </tbody>
         </table>
-        <h4 class="text-center">Derechos reservados: Palma Miranda Mario Enrique, Toledo Diaz Werner Alejandro</h4>
+        <h4 class="text-center">Derechos reservados: Palma Miranda Mario Enrique, Toledo Diaz Werner Alejandro©</h4>
     </div>
 </div>
