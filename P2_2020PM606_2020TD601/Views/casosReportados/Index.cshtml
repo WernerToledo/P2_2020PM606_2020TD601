@@ -1,6 +1,7 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model P2_2020PM606_2020TD601.Models.casosReportados;
 @{
 }
 <div class="container" style="background-color: rgb(215, 219, 221);">
@@ -12,23 +13,23 @@
 
     <!--Contenido a ingresar-->
     <h1>Reportar casos</h1>
-    <form>
+    <form asp-action="CrearCasos">
         <div class="row ">
-            @*
+            
             <div class="col">
-                @Html.Label("lbldepartamento", "Departamento", new{@for="departamento", @class="form-label"})
-                @Html.DropDownList("Departamento", ,"Seleccione un departamento", new{@class = "form-control"})
+                @Html.Label("lbldepartamento", "Departamento", new{@for="nombre", @class="form-label"})
+                @Html.DropDownList("nombre", ViewData["listadoDepartamento"]as SelectList,"Seleccione un departamento", new{@class = "form-control"})
             </div>
             <div class="col">
                 @Html.Label("lblgenero", "Genero", new{@for="genero", @class="form-label"})
-                @Html.DropDownList("genero", ,"Seleccione el genero", new{@class = "form-control"})
+                @Html.DropDownList("genero", ViewData["listadoGeneros"]as SelectList,"Seleccione el genero", new{@class = "form-control"})
             </div>
-            *@
+           
         </div>
         <div class="row">
             <div class="col">
-                @Html.Label("lblcasos", "Casos Confirmados", new{@for="casosconfirmados", @class="form-label"})
-                @Html.TextBox("casosconfirmados","", new{@class = "form-control", @type = "number"})
+                @Html.Label("lblcasos", "Casos Confirmados", new{@for="cconfirmados", @class="form-label"})
+                @Html.TextBox("confirmados","", new{@class = "form-control", @type = "number"})
             </div>
             <div class="col">
                 @Html.Label("lblrecuperados", "Número de recuperados", new{@for="recuperados", @class="form-label"})
@@ -50,45 +51,25 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>@Html.DisplayNameFor(model => model.nombre)</th>
-                    <th>@Html.DisplayNameFor(model => model.descripcion)</th>
-                    <th>@Html.DisplayNameFor(model => model.tipo_equipo_id)</th>
-                    <th>@Html.DisplayNameFor(model => model.marca_id)</th>
-                    <th>@Html.DisplayNameFor(model => model.modelo)</th>
-                    <th>@Html.DisplayNameFor(model => model.anio_compra)</th>
-                    <th>@Html.DisplayNameFor(model => model.costo)</th>
-                    <th>@Html.DisplayNameFor(model => model.vida_util)</th>
-                    <th>@Html.DisplayNameFor(model => model.estado_equipo_id)</th>
-                    <th>@Html.DisplayNameFor(model => model.estado)</th>
+                    <th>@Html.DisplayNameFor(model => model.id_caso)</th>
+                    <th>@Html.DisplayNameFor(model => model.id_departamento)</th>
+                    <th>@Html.DisplayNameFor(model => model.id_genero)</th>
+                    <th>@Html.DisplayNameFor(model => model.confirmados)</th>
+                    <th>@Html.DisplayNameFor(model => model.recuperados)</th>
+                    <th>@Html.DisplayNameFor(model => model.fallecidos)</th>
                 </tr>
             </thead>
-            <!--    <tbody>
-            @*@ @foreach(var item in Model)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(Modelitem => item.id_marca)</td>
-                        <td>@Html.DisplayFor(Modelitem => item.nombre_marca)</td>
-                        <td>@Html.DisplayFor(Modelitem => item.estados)</td>
-                    </tr>
-                }
-                *@
-            </tbody>
-            -->
+            
             <tbody>
-                @foreach (var item in (IEnumerable<dynamic>)ViewData["Listadoequipo"])
+                @foreach (var item in (IEnumerable<dynamic>)ViewData["ListaCasos"])
                 {
                     <tr>
-                        <td>@item.nombre</td>
-                        <td>@item.descrip</td>
-                        <td>@item.tipo_equipo</td>
-                        <td>@item.marca</td>
-                        <td>@item.modelo</td>
-                        <td>@item.anio</td>
-                        <td>@item.costo</td>
-                        <td>@item.vida_util</td>
-                        <td>@item.estados_equipo</td>
-                        <td>@item.estado</td>
-
+                        <td>@item.idcaso</td>
+                        <td>@item.departamento</td>
+                        <td>@item.genero</td>
+                        <td>@item.confirmados</td>
+                        <td>@item.recuperados</td>
+                        <td>@item.fallecidos</td>
                     </tr>
                 }
 

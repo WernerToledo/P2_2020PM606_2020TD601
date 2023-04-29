@@ -6,6 +6,7 @@ namespace P2_2020PM606_2020TD601.Models
     {
 
         [Key]
+
         public int id_caso { get; set; }
 
         public int id_departamento { get; set; }
